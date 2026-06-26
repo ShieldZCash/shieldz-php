@@ -9,16 +9,18 @@ class ShieldzError extends \Exception
 {
     public int $status;
     public string $type;
-    public string $code;
+    /** Machine-readable error code (e.g. "invalid_amount"). Named `errorCode`
+     *  because \Exception already reserves the integer `$code`. */
+    public string $errorCode;
     public ?string $param;
     public ?string $requestId;
 
     public function __construct(int $status, array $body = [], ?string $requestId = null)
     {
-        parent::__construct($body['message'] ?? "Shieldz API error (HTTP {$status})");
+        parent::__construct($body['message'] ?? "Shieldz API error (HTTP {$status})", $status);
         $this->status = $status;
         $this->type = $body['type'] ?? 'api_error';
-        $this->code = $body['code'] ?? 'unknown';
+        $this->errorCode = $body['code'] ?? 'unknown';
         $this->param = $body['param'] ?? null;
         $this->requestId = $requestId;
     }

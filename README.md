@@ -74,7 +74,7 @@ http_response_code(200);
 
 ## Errors
 
-Any non-2xx throws `Shieldz\ShieldzError` with `->status`, `->type`, `->code`, `->param`, `->requestId`.
+Any non-2xx throws `Shieldz\ShieldzError` with `->status`, `->type`, `->errorCode`, `->param`, `->requestId` (the machine code is `->errorCode` because `\Exception` reserves the integer `->code`, which we set to the HTTP status).
 
 ## Links
 

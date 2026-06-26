@@ -27,7 +27,7 @@ final class ClientTest extends TestCase
     {
         $e = new ShieldzError(400, ['type' => 'invalid_request', 'code' => 'invalid_amount', 'message' => 'too small', 'param' => 'amount_usd_cents'], 'ray-1');
         $this->assertSame(400, $e->status);
-        $this->assertSame('invalid_amount', $e->code);
+        $this->assertSame('invalid_amount', $e->errorCode);
         $this->assertSame('amount_usd_cents', $e->param);
         $this->assertSame('ray-1', $e->requestId);
     }
