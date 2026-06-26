@@ -1,0 +1,25 @@
+{
+    "name": "shieldz/shieldz",
+    "description": "Official PHP SDK for Shieldz — non-custodial crypto payments with $0 fees.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["shieldz", "crypto", "payments", "non-custodial", "usdc", "bitcoin", "stablecoin", "payment-gateway", "webhooks"],
+    "homepage": "https://shieldz.cash",
+    "authors": [
+        { "name": "Deniz Yanbollu" }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    },
+    "autoload": {
+        "psr-4": { "Shieldz\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Shieldz\\Tests\\": "tests/" }
+    }
+}
